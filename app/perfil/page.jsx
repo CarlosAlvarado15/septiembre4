@@ -1,9 +1,16 @@
-import React from "react";
-
+"use client";
+import { useState } from "react";
+import Image from "next/image";
 export default function Perfil() {
+  const [toggle, setToggle] = useState(true);
+
+  const toggleMenu = () => {
+    setToggle(!toggle);
+  };
+
   return (
     <>
-      <nav class=" p-4 flex justify-between items-center">
+      <nav className="p-4 flex justify-between items-center">
         <span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -78,91 +85,97 @@ export default function Perfil() {
             />
           </svg>
         </span>
-
-        <div class="flex items-center space-x-2">
-          {/* <img
-          src="<?= $userProfile['photo'] ?>"
-          alt="Usuario"
-          class="w-10 h-10 rounded-full"
-              />*/}
-          <button class="user-toggle text-black">
-            {" "}
-            {/*Usuario <?= $userProfile['name'] ?>*/}
+        <div className="flex items-center space-x-2">
+          <Image
+            width={50}
+            height={50}
+            src=""
+            alt="Usuario"
+            class="w-10 h-10 rounded-full"
+          />
+          <button onClick={toggleMenu} class="user-toggle text-black">
+            Usuario
           </button>
-
-          <div class="hidden bg-blue absolute right-4 mt-56 py-2 w-40 rounded shadow-md dropdown-content">
-            <a
-              href="perfil.php"
-              class="text-gray-700 w-full p-3 gap-2 flex flex-row bg-gray-200 rounded-lg"
-            />
-            <i class="icono">
-              {" "}
-              <span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="21"
-                  height="21"
-                  viewBox="0 0 21 21"
-                  fill="none"
-                >
-                  <g clip-path="url(#clip0_570_384)">
-                    <path
-                      d="M10.6435 2.18596C6.04354 2.18596 2.31021 5.91929 2.31021 10.5193C2.31021 15.1193 6.04354 18.8526 10.6435 18.8526C15.2435 18.8526 18.9769 15.1193 18.9769 10.5193C18.9769 5.91929 15.2435 2.18596 10.6435 2.18596ZM10.6435 4.68596C12.0269 4.68596 13.1435 5.80263 13.1435 7.18596C13.1435 8.56929 12.0269 9.68596 10.6435 9.68596C9.26021 9.68596 8.14354 8.56929 8.14354 7.18596C8.14354 5.80263 9.26021 4.68596 10.6435 4.68596ZM10.6435 16.5193C8.56021 16.5193 6.71854 15.4526 5.64354 13.836C5.66854 12.1776 8.97688 11.2693 10.6435 11.2693C12.3019 11.2693 15.6185 12.1776 15.6435 13.836C14.5685 15.4526 12.7269 16.5193 10.6435 16.5193Z"
-                      fill="#4F4F4F"
-                    />
-                  </g>
-                  <defs>
-                    <clipPath id="clip0_570_384">
-                      <rect
-                        width="20"
-                        height="20"
-                        fill="white"
-                        transform="translate(0.643555 0.519287)"
+          <div
+            className={`${
+              toggle && "hidden"
+            } bg-blue absolute right-4 mt-56 py-2 w-40 rounded dropdown-content`}
+          >
+            <div>
+              <a
+                href="/perfil"
+                className="text-gray-700 w-full p-3 gap-2 flex flex-row bg-gray-100 rounded-lg"
+              >
+                <i class="icono">
+                  <span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="21"
+                      height="21"
+                      viewBox="0 0 21 21"
+                      fill="none"
+                    >
+                      <g clip-path="url(#clip0_570_384)">
+                        <path
+                          d="M10.6435 2.18596C6.04354 2.18596 2.31021 5.91929 2.31021 10.5193C2.31021 15.1193 6.04354 18.8526 10.6435 18.8526C15.2435 18.8526 18.9769 15.1193 18.9769 10.5193C18.9769 5.91929 15.2435 2.18596 10.6435 2.18596ZM10.6435 4.68596C12.0269 4.68596 13.1435 5.80263 13.1435 7.18596C13.1435 8.56929 12.0269 9.68596 10.6435 9.68596C9.26021 9.68596 8.14354 8.56929 8.14354 7.18596C8.14354 5.80263 9.26021 4.68596 10.6435 4.68596ZM10.6435 16.5193C8.56021 16.5193 6.71854 15.4526 5.64354 13.836C5.66854 12.1776 8.97688 11.2693 10.6435 11.2693C12.3019 11.2693 15.6185 12.1776 15.6435 13.836C14.5685 15.4526 12.7269 16.5193 10.6435 16.5193Z"
+                          fill="#4F4F4F"
+                        />
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_570_384">
+                          <rect
+                            width="20"
+                            height="20"
+                            fill="white"
+                            transform="translate(0.643555 0.519287)"
+                          />
+                        </clipPath>
+                      </defs>
+                    </svg>
+                  </span>
+                </i>
+                <span>My profile</span>
+              </a>
+            </div>
+            <div>
+              <a
+                href="###"
+                className="text-gray-700 flex flex-row gap-2 w-full p-3 mb-1 hover:bg-gray-200 rounded-lg"
+              >
+                <i class="grupo">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="21"
+                    height="21"
+                    viewBox="0 0 21 21"
+                    fill="none"
+                  >
+                    <g clip-path="url(#clip0_570_376)">
+                      <path
+                        d="M13.9767 9.86276C15.36 9.86276 16.4683 8.7461 16.4683 7.36276C16.4683 5.97943 15.36 4.86276 13.9767 4.86276C12.5934 4.86276 11.4767 5.97943 11.4767 7.36276C11.4767 8.7461 12.5934 9.86276 13.9767 9.86276ZM7.31002 9.86276C8.69335 9.86276 9.80168 8.7461 9.80168 7.36276C9.80168 5.97943 8.69335 4.86276 7.31002 4.86276C5.92668 4.86276 4.81002 5.97943 4.81002 7.36276C4.81002 8.7461 5.92668 9.86276 7.31002 9.86276ZM7.31002 11.5294C5.36835 11.5294 1.47668 12.5044 1.47668 14.4461V15.6961C1.47668 16.1544 1.85168 16.5294 2.31002 16.5294H12.31C12.7684 16.5294 13.1434 16.1544 13.1434 15.6961V14.4461C13.1434 12.5044 9.25168 11.5294 7.31002 11.5294ZM13.9767 11.5294C13.735 11.5294 13.46 11.5461 13.1684 11.5711C13.185 11.5794 13.1933 11.5961 13.2017 11.6044C14.1517 12.2961 14.81 13.2211 14.81 14.4461V15.6961C14.81 15.9878 14.7517 16.2711 14.66 16.5294H18.9767C19.435 16.5294 19.81 16.1544 19.81 15.6961V14.4461C19.81 12.5044 15.9184 11.5294 13.9767 11.5294Z"
+                        fill="#4F4F4F"
                       />
-                    </clipPath>
-                  </defs>
-                </svg>
-              </span>{" "}
-            </i>{" "}
-            <span>My profile</span>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_570_376">
+                        <rect
+                          width="20"
+                          height="20"
+                          fill="white"
+                          transform="translate(0.643311 0.69577)"
+                        />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </i>
+                <span>Group Chat</span>
+              </a>
+            </div>
             <a
               href="#"
-              class="text-gray-700 flex flex-row gap-2 w-full p-3 mb-1 hover:bg-gray-200 rounded-lg"
-            />
-            <i class="grupo">
-              {" "}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="21"
-                height="21"
-                viewBox="0 0 21 21"
-                fill="none"
-              >
-                <g clip-path="url(#clip0_570_376)">
-                  <path
-                    d="M13.9767 9.86276C15.36 9.86276 16.4683 8.7461 16.4683 7.36276C16.4683 5.97943 15.36 4.86276 13.9767 4.86276C12.5934 4.86276 11.4767 5.97943 11.4767 7.36276C11.4767 8.7461 12.5934 9.86276 13.9767 9.86276ZM7.31002 9.86276C8.69335 9.86276 9.80168 8.7461 9.80168 7.36276C9.80168 5.97943 8.69335 4.86276 7.31002 4.86276C5.92668 4.86276 4.81002 5.97943 4.81002 7.36276C4.81002 8.7461 5.92668 9.86276 7.31002 9.86276ZM7.31002 11.5294C5.36835 11.5294 1.47668 12.5044 1.47668 14.4461V15.6961C1.47668 16.1544 1.85168 16.5294 2.31002 16.5294H12.31C12.7684 16.5294 13.1434 16.1544 13.1434 15.6961V14.4461C13.1434 12.5044 9.25168 11.5294 7.31002 11.5294ZM13.9767 11.5294C13.735 11.5294 13.46 11.5461 13.1684 11.5711C13.185 11.5794 13.1933 11.5961 13.2017 11.6044C14.1517 12.2961 14.81 13.2211 14.81 14.4461V15.6961C14.81 15.9878 14.7517 16.2711 14.66 16.5294H18.9767C19.435 16.5294 19.81 16.1544 19.81 15.6961V14.4461C19.81 12.5044 15.9184 11.5294 13.9767 11.5294Z"
-                    fill="#4F4F4F"
-                  />
-                </g>
-                <defs>
-                  <clipPath id="clip0_570_376">
-                    <rect
-                      width="20"
-                      height="20"
-                      fill="white"
-                      transform="translate(0.643311 0.69577)"
-                    />
-                  </clipPath>
-                </defs>
-              </svg>
-            </i>{" "}
-            <span>Group Chat</span>
-            <a
-              href="serrarSession.php"
               class="text-red-600 flex flex-row gap-2 p-3 w-full text-left rounded-lg focus:outline-none hover:bg-gray-200"
             >
               <span>
-                {" "}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
@@ -188,8 +201,8 @@ export default function Perfil() {
           </div>
         </div>
       </nav>
-      <section class="profile-page p-4 bg-gray-100 font-sans w-1440 h-1080 rounded-lg">
-        <div class="flex w-fit mx-auto flex-col ">
+      <section className="profile-page p-4 bg--100 font-sans w-1440 h-1080 rounded-lg">
+        <div class="flex w-fit mx-auto flex-col">
           <div class="items-center  ">
             <h2 class="text-black font-noto-sans text-3xl font-normal leading-normal tracking-tight">
               Personal info
@@ -209,7 +222,7 @@ export default function Perfil() {
               </div>
               <div class="right flex-2">
                 <a
-                  href="changeInf.php"
+                  href="/editar"
                   class="text-gray-400 font-noto-sans text-base font-medium leading-normal tracking-tight btn btn-grey border rounded-lg m-5 py-2 px-6 focus:outline-none hover:bg-blue-400 flex-shrink-0  "
                 >
                   Edit
@@ -223,8 +236,10 @@ export default function Perfil() {
                 </h5>
               </div>
               <div class="right flex-1">
-                <img
-                  src="<?= $userProfile['photo'] ?>"
+                <Image
+                  width={50}
+                  height={50}
+                  src=""
                   alt="Profile"
                   class="w-24 h-24 rounded-full"
                 />
