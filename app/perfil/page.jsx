@@ -91,9 +91,9 @@ export default function Perfil() {
             height={50}
             src=""
             alt="Usuario"
-            class="w-10 h-10 rounded-full"
+            className="w-10 h-10 rounded-full"
           />
-          <button onClick={toggleMenu} class="user-toggle text-black">
+          <button onClick={toggleMenu} className="user-toggle text-black">
             Usuario
           </button>
           <div
@@ -106,7 +106,7 @@ export default function Perfil() {
                 href="/perfil"
                 className="text-gray-700 w-full p-3 gap-2 flex flex-row bg-gray-100 rounded-lg"
               >
-                <i class="icono">
+                <i className="icono">
                   <span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -115,7 +115,7 @@ export default function Perfil() {
                       viewBox="0 0 21 21"
                       fill="none"
                     >
-                      <g clip-path="url(#clip0_570_384)">
+                      <g clipPath="url(#clip0_570_384)">
                         <path
                           d="M10.6435 2.18596C6.04354 2.18596 2.31021 5.91929 2.31021 10.5193C2.31021 15.1193 6.04354 18.8526 10.6435 18.8526C15.2435 18.8526 18.9769 15.1193 18.9769 10.5193C18.9769 5.91929 15.2435 2.18596 10.6435 2.18596ZM10.6435 4.68596C12.0269 4.68596 13.1435 5.80263 13.1435 7.18596C13.1435 8.56929 12.0269 9.68596 10.6435 9.68596C9.26021 9.68596 8.14354 8.56929 8.14354 7.18596C8.14354 5.80263 9.26021 4.68596 10.6435 4.68596ZM10.6435 16.5193C8.56021 16.5193 6.71854 15.4526 5.64354 13.836C5.66854 12.1776 8.97688 11.2693 10.6435 11.2693C12.3019 11.2693 15.6185 12.1776 15.6435 13.836C14.5685 15.4526 12.7269 16.5193 10.6435 16.5193Z"
                           fill="#4F4F4F"
@@ -142,7 +142,7 @@ export default function Perfil() {
                 href="###"
                 className="text-gray-700 flex flex-row gap-2 w-full p-3 mb-1 hover:bg-gray-200 rounded-lg"
               >
-                <i class="grupo">
+                <i className="grupo">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="21"
@@ -150,7 +150,7 @@ export default function Perfil() {
                     viewBox="0 0 21 21"
                     fill="none"
                   >
-                    <g clip-path="url(#clip0_570_376)">
+                    <g clipPath="url(#clip0_570_376)">
                       <path
                         d="M13.9767 9.86276C15.36 9.86276 16.4683 8.7461 16.4683 7.36276C16.4683 5.97943 15.36 4.86276 13.9767 4.86276C12.5934 4.86276 11.4767 5.97943 11.4767 7.36276C11.4767 8.7461 12.5934 9.86276 13.9767 9.86276ZM7.31002 9.86276C8.69335 9.86276 9.80168 8.7461 9.80168 7.36276C9.80168 5.97943 8.69335 4.86276 7.31002 4.86276C5.92668 4.86276 4.81002 5.97943 4.81002 7.36276C4.81002 8.7461 5.92668 9.86276 7.31002 9.86276ZM7.31002 11.5294C5.36835 11.5294 1.47668 12.5044 1.47668 14.4461V15.6961C1.47668 16.1544 1.85168 16.5294 2.31002 16.5294H12.31C12.7684 16.5294 13.1434 16.1544 13.1434 15.6961V14.4461C13.1434 12.5044 9.25168 11.5294 7.31002 11.5294ZM13.9767 11.5294C13.735 11.5294 13.46 11.5461 13.1684 11.5711C13.185 11.5794 13.1933 11.5961 13.2017 11.6044C14.1517 12.2961 14.81 13.2211 14.81 14.4461V15.6961C14.81 15.9878 14.7517 16.2711 14.66 16.5294H18.9767C19.435 16.5294 19.81 16.1544 19.81 15.6961V14.4461C19.81 12.5044 15.9184 11.5294 13.9767 11.5294Z"
                         fill="#4F4F4F"
@@ -173,7 +173,7 @@ export default function Perfil() {
             </div>
             <a
               href="#"
-              class="text-red-600 flex flex-row gap-2 p-3 w-full text-left rounded-lg focus:outline-none hover:bg-gray-200"
+              className="text-red-600 flex flex-row gap-2 p-3 w-full text-left rounded-lg focus:outline-none hover:bg-gray-200"
             >
               <span>
                 <svg
@@ -183,7 +183,7 @@ export default function Perfil() {
                   viewBox="0 0 20 20"
                   fill="none"
                 >
-                  <g clip-path="url(#clip0_570_373)">
+                  <g clipPath="url(#clip0_570_373)">
                     <path
                       d="M8.99167 13.575C9.31667 13.9 9.84167 13.9 10.1667 13.575L13.1583 10.5833C13.4833 10.2583 13.4833 9.73333 13.1583 9.40833L10.1667 6.41667C9.84167 6.09167 9.31667 6.09167 8.99167 6.41667C8.66667 6.74167 8.66667 7.26667 8.99167 7.59167L10.5583 9.16667H3.33333C2.875 9.16667 2.5 9.54167 2.5 10C2.5 10.4583 2.875 10.8333 3.33333 10.8333H10.5583L8.99167 12.4C8.66667 12.725 8.675 13.2583 8.99167 13.575ZM15.8333 2.5H4.16667C3.24167 2.5 2.5 3.25 2.5 4.16667V6.66667C2.5 7.125 2.875 7.5 3.33333 7.5C3.79167 7.5 4.16667 7.125 4.16667 6.66667V5C4.16667 4.54167 4.54167 4.16667 5 4.16667H15C15.4583 4.16667 15.8333 4.54167 15.8333 5V15C15.8333 15.4583 15.4583 15.8333 15 15.8333H5C4.54167 15.8333 4.16667 15.4583 4.16667 15V13.3333C4.16667 12.875 3.79167 12.5 3.33333 12.5C2.875 12.5 2.5 12.875 2.5 13.3333V15.8333C2.5 16.75 3.25 17.5 4.16667 17.5H15.8333C16.75 17.5 17.5 16.75 17.5 15.8333V4.16667C17.5 3.25 16.75 2.5 15.8333 2.5Z"
                       fill="#EB5757"
@@ -202,122 +202,122 @@ export default function Perfil() {
         </div>
       </nav>
       <section className="profile-page p-4 bg--100 font-sans w-1440 h-1080 rounded-lg">
-        <div class="flex w-fit mx-auto flex-col">
-          <div class="items-center  ">
-            <h2 class="text-black font-noto-sans text-3xl font-normal leading-normal tracking-tight">
+        <div className="flex w-fit mx-auto flex-col">
+          <div className="items-center  ">
+            <h2 className="text-black font-noto-sans text-3xl font-normal leading-normal tracking-tight">
               Personal info
             </h2>
 
-            <h5 class="text-black font-noto-sans text-lg font-light tracking-tighter">
+            <h5 className="text-black font-noto-sans text-lg font-light tracking-tighter">
               Basic info, like your name and photo
             </h5>
           </div>
-          <div class="profile-wrapper__body border border-gray-300 rounded-2xl md:max-w-[845px] md:w-[80vw]">
-            <div class="profile-wrapper-body__item flex justify-between items-center p-4 border border-grey-300 rounded">
-              <div class="left flex-1">
-                <h4 class="font-normal text-xl"> Profile</h4>
-                <p class="text-gray-500">
+          <div className="profile-wrapper__body border border-gray-300 rounded-2xl md:max-w-[845px] md:w-[80vw]">
+            <div className="profile-wrapper-body__item flex justify-between items-center p-4 border border-grey-300 rounded">
+              <div className="left flex-1">
+                <h4 className="font-normal text-xl"> Profile</h4>
+                <p className="text-gray-500">
                   Some info may be visible to other people
                 </p>
               </div>
-              <div class="right flex-2">
+              <div className="right flex-2">
                 <a
                   href="/editar"
-                  class="text-gray-400 font-noto-sans text-base font-medium leading-normal tracking-tight btn btn-grey border rounded-lg m-5 py-2 px-6 focus:outline-none hover:bg-blue-400 flex-shrink-0  "
+                  className="text-gray-400 font-noto-sans text-base font-medium leading-normal tracking-tight btn btn-grey border rounded-lg m-5 py-2 px-6 focus:outline-none hover:bg-blue-400 flex-shrink-0  "
                 >
                   Edit
                 </a>
               </div>
             </div>
-            <div class=" profile-wrapper-body__item flex justify-between items-center p-4 border border-gray-300 rounded">
-              <div class="left flex-1">
-                <h5 class="text-gray-400 font-noto-sans text-base font-medium leading-normal tracking-tight">
+            <div className=" profile-wrapper-body__item flex justify-between items-center p-4 border border-gray-300 rounded">
+              <div className="left flex-1">
+                <h5 className="text-gray-400 font-noto-sans text-base font-medium leading-normal tracking-tight">
                   PHOTO
                 </h5>
               </div>
-              <div class="right flex-1">
+              <div className="right flex-1">
                 <Image
                   width={50}
                   height={50}
                   src=""
                   alt="Profile"
-                  class="w-24 h-24 rounded-full"
+                  className="w-24 h-24 rounded-full"
                 />
               </div>
             </div>
-            <div class="profile-wrapper-body__item flex justify-between items-center p-4 border border-gray-300 rounded">
-              <div class="left flex-1">
-                <h5 class="text-gray-400 font-noto-sans text-base font-medium leading-normal tracking-tight">
-                  NAME
+            <div className="profile-wrapper-body__item flex justify-between items-center p-4 border border-gray-300 rounded">
+              <div className="left flex-1">
+                <h5 className="text-gray-400 font-noto-sans text-base font-medium leading-normal tracking-tight">
+                  FULLNAME
                 </h5>
               </div>
-              <div class="right flex-1">
-                <p class="font-sans text-base font-medium text-gray-700 tracking-tight leading-normal">
+              <div className="right flex-1">
+                <p className="font-sans text-base font-medium text-gray-700 tracking-tight leading-normal">
                   {/*<?= $userProfile['name'] ?>*/}
                 </p>
               </div>
             </div>
-            <div class="profile-wrapper-body__item flex justify-between items-center p-4 border border-gray-300 rounded">
-              <div class="left flex-1 ">
-                <h5 class="text-gray-400 font-noto-sans text-base font-medium leading-normal tracking-tight">
+            <div className="profile-wrapper-body__item flex justify-between items-center p-4 border border-gray-300 rounded">
+              <div className="left flex-1 ">
+                <h5 className="text-gray-400 font-noto-sans text-base font-medium leading-normal tracking-tight">
                   BIO
                 </h5>
               </div>
-              <div class="right flex-1">
-                <p class="font-sans text-base font-medium text-gray-700 tracking-tight leading-normal">
+              <div className="right flex-1">
+                <p className="font-sans text-base font-medium text-gray-700 tracking-tight leading-normal">
                   {/* <?= $userProfile['bio'] ?>*/}
                 </p>
               </div>
             </div>
-            <div class="profile-wrapper-body__item flex justify-between items-center p-4 border border-gray-300 rounded">
-              <div class="left flex-1">
-                <h5 class="text-gray-400 font-noto-sans text-base font-medium leading-normal tracking-tight">
+            <div className="profile-wrapper-body__item flex justify-between items-center p-4 border border-gray-300 rounded">
+              <div className="left flex-1">
+                <h5 className="text-gray-400 font-noto-sans text-base font-medium leading-normal tracking-tight">
                   PHONE
                 </h5>
               </div>
-              <div class="right flex-1 ">
-                <p class="font-sans text-base font-medium text-gray-700 tracking-tight leading-normal">
+              <div className="right flex-1 ">
+                <p className="font-sans text-base font-medium text-gray-700 tracking-tight leading-normal">
                   {/* <?= $userProfile['phone'] ?>*/}
                 </p>
               </div>
             </div>
-            <div class="profile-wrapper-body__item flex justify-between items-center p-4 border border-gray-300 rounded">
-              <div class="left flex-1 ">
-                <h5 class="text-gray-400 font-noto-sans text-base font-medium leading-normal tracking-tight">
+            <div className="profile-wrapper-body__item flex justify-between items-center p-4 border border-gray-300 rounded">
+              <div className="left flex-1 ">
+                <h5 className="text-gray-400 font-noto-sans text-base font-medium leading-normal tracking-tight">
                   EMAIL
                 </h5>
               </div>
-              <div class="right flex-1 ">
-                <p class="font-sans text-base font-medium text-gray-700 tracking-tight leading-normal">
+              <div className="right flex-1 ">
+                <p className="font-sans text-base font-medium text-gray-700 tracking-tight leading-normal">
                   {/*<?= $userProfile['email'] ?>*/}
                 </p>
               </div>
             </div>
-            <div class="profile-wrapper-body__item flex justify-between items-center p-4 border border-gray-300 rounded">
-              <div class="left flex-1">
-                <h5 class="text-gray-400 font-noto-sans text-base font-medium leading-normal tracking-tight">
+            <div className="profile-wrapper-body__item flex justify-between items-center p-4 border border-gray-300 rounded">
+              <div className="left flex-1">
+                <h5 className="text-gray-400 font-noto-sans text-base font-medium leading-normal tracking-tight">
                   PASSWORD
                 </h5>
               </div>
-              <div class="right flex-1">
-                <p class="font-sans text-base font-medium text-gray-700 tracking-tight leading-normal">
+              <div className="right flex-1">
+                <p className="font-sans text-base font-medium text-gray-700 tracking-tight leading-normal">
                   *************
                 </p>
               </div>
             </div>
           </div>
-          <footer class="flex items-center">
+          <footer className="flex items-center">
             <p>created by</p>
             <a
               href="#!"
-              class="text-[#828282] font-NotoSans font-bold text-14 leading-normal tracking-[-0.49px] underline 
+              className="text-[#828282] font-NotoSans font-bold text-14 leading-normal tracking-[-0.49px] underline 
       w-133 h-19 top-844 left-483"
             >
               Carlos Alvarado
             </a>
             <a
               href="https://devchallenges.io/challenges/N1fvBjQfhlkctmwj1tnw"
-              class="ml-auto"
+              className="ml-auto"
             >
               devChallenges.io
             </a>

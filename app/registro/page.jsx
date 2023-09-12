@@ -1,9 +1,42 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 
 export default function Index() {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch("http://127.0.0.1:8000/api/usuario/create", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        console.log(response);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
-    <section class="w-fit m-auto h-screen flex  flex-col justify-center">
-      <div class="w-[473.831px] h-[634.303px] rounded-[24px] border border-gray-300 text-[#BDBDBD]  px-14 flex flex-col justify-center">
+    <section className="w-fit m-auto h-screen flex  flex-col justify-center">
+      <div className="w-[473.831px] h-[634.303px] rounded-[24px] border border-gray-300 text-[#BDBDBD]  px-14 flex flex-col justify-center">
         <span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -79,11 +112,11 @@ export default function Index() {
           </svg>
         </span>
 
-        <p class="text-[#333] font-noto-sans text-xl font-semibold leading-normal tracking-tighter w-[318.878px] my-4">
+        <p className="text-[#333] font-noto-sans text-xl font-semibold leading-normal tracking-tighter w-[318.878px] my-4">
           Join thousands of learners from around the world
         </p>
 
-        <p class="text-[#333] font-noto-sans text-base font-normal leading-normal tracking-tighter w-[318.878px] my-4">
+        <p className="text-[#333] font-noto-sans text-base font-normal leading-normal tracking-tighter w-[318.878px] my-4">
           Master web development by making real-life projects. There are
           multiple paths for you to choose
         </p>
@@ -91,9 +124,9 @@ export default function Index() {
         <form
           action="enlace.php"
           method="POST"
-          class="flex flex-col w-fit gap-4"
+          className="flex flex-col w-fit gap-4"
         >
-          <div class="flex items-center gap-3 px-3 h-12 max-w-[360px] border rounded-xl border-[#BDBDBD]">
+          <div className="flex items-center gap-3 px-3 h-12 max-w-[360px] border rounded-xl border-[#BDBDBD]">
             <span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -102,7 +135,7 @@ export default function Index() {
                 viewBox="0 0 25 25"
                 fill="none"
               >
-                <g clip-path="url(#clip0_1_7)">
+                <g clipPath="url(#clip0_1_7)">
                   <path
                     d="M20.6555 4.49072H4.65552C3.55552 4.49072 2.65552 5.39072 2.65552 6.49072V18.4907C2.65552 19.5907 3.55552 20.4907 4.65552 20.4907H20.6555C21.7555 20.4907 22.6555 19.5907 22.6555 18.4907V6.49072C22.6555 5.39072 21.7555 4.49072 20.6555 4.49072ZM20.2555 8.74072L13.7155 12.8307C13.0655 13.2407 12.2455 13.2407 11.5955 12.8307L5.05552 8.74072C4.80552 8.58072 4.65552 8.31072 4.65552 8.02072C4.65552 7.35072 5.38552 6.95072 5.95552 7.30072L12.6555 11.4907L19.3555 7.30072C19.9255 6.95072 20.6555 7.35072 20.6555 8.02072C20.6555 8.31072 20.5055 8.58072 20.2555 8.74072Z"
                     fill="#828282"
@@ -125,12 +158,14 @@ export default function Index() {
               type="email"
               name="email"
               id="email"
+              value={formData.email}
               placeholder="Email"
-              class="h-10 w-full outline-none"
+              className="h-10 w-full outline-none"
+              onChange={handleInputChange}
             />
           </div>
 
-          <div class="flex items-center gap-3 px-3 h-12 max-w-[360px] border rounded-xl border-[#BDBDBD]">
+          <div className="flex items-center gap-3 px-3 h-12 max-w-[360px] border rounded-xl border-[#BDBDBD]">
             <span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -139,7 +174,7 @@ export default function Index() {
                 viewBox="0 0 25 25"
                 fill="none"
               >
-                <g clip-path="url(#clip0_1_12)">
+                <g clipPath="url(#clip0_1_12)">
                   <path
                     d="M18.6555 8.99072H17.6555V6.99072C17.6555 4.23072 15.4155 1.99072 12.6555 1.99072C9.89552 1.99072 7.65552 4.23072 7.65552 6.99072V8.99072H6.65552C5.55552 8.99072 4.65552 9.89072 4.65552 10.9907V20.9907C4.65552 22.0907 5.55552 22.9907 6.65552 22.9907H18.6555C19.7555 22.9907 20.6555 22.0907 20.6555 20.9907V10.9907C20.6555 9.89072 19.7555 8.99072 18.6555 8.99072ZM12.6555 17.9907C11.5555 17.9907 10.6555 17.0907 10.6555 15.9907C10.6555 14.8907 11.5555 13.9907 12.6555 13.9907C13.7555 13.9907 14.6555 14.8907 14.6555 15.9907C14.6555 17.0907 13.7555 17.9907 12.6555 17.9907ZM9.65552 8.99072V6.99072C9.65552 5.33072 10.9955 3.99072 12.6555 3.99072C14.3155 3.99072 15.6555 5.33072 15.6555 6.99072V8.99072H9.65552Z"
                     fill="#828282"
@@ -162,26 +197,29 @@ export default function Index() {
               type="password"
               name="password"
               id="password"
+              value={formData.password}
               placeholder="Password"
-              class="h-10 w-full outline-none"
+              className="h-10 w-full outline-none"
+              onChange={handleInputChange}
             />
           </div>
 
           <button
-            type="submit"
-            class="w-[356.481px] h-[38px] text-white bg-[#2F80ED] text-base font-semibold rounded-lg mx-auto my-3"
+            type="button"
+            className="w-[356.481px] h-[38px] text-white bg-[#2F80ED] text-base font-semibold rounded-lg mx-auto my-3"
+            onClick={handleSubmit}
           >
             Start coding now
           </button>
         </form>
 
-        <p class="text-[#828282] font-noto-sans text-sm font-normal leading-normal tracking-tighter  flex flex-row justify-center mx-auto my-4">
+        <p className="text-[#828282] font-noto-sans text-sm font-normal leading-normal tracking-tighter  flex flex-row justify-center mx-auto my-4">
           or continue with these social profile
         </p>
 
-        <div class="flex flex-row items-center justify-center lg:justify-center gap-3">
+        <div className="flex flex-row items-center justify-center lg:justify-center gap-3">
           <a href="#">
-            <span bg-gray-300 border-gray-500>
+            <span className=" bg-gray-300 border-gray-500>">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="43"
@@ -199,7 +237,7 @@ export default function Index() {
           </a>
 
           <a href="#">
-            <span class="w-[42px] h-[42px] rounded-full flex items-center justify-center border border-[#828282]bg-gray-300 border-gray-500">
+            <span className="w-[42px] h-[42px] rounded-full flex items-center justify-center border border-[#828282]bg-gray-300 border-gray-500">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="19"
@@ -207,7 +245,7 @@ export default function Index() {
                 viewBox="0 0 19 19"
                 fill="none"
               >
-                <g clip-path="url(#clip0_1_23)">
+                <g clipPath="url(#clip0_1_23)">
                   <path
                     d="M15.7963 0.441895H3.0697C1.61594 0.441895 0.432983 1.59599 0.432983 3.0143V15.4305C0.432983 16.8488 1.61594 18.0029 3.0697 18.0029H8.3783V11.7948H6.26892V8.7079H8.3783V6.61567C8.3783 4.91346 9.79759 3.52878 11.5424 3.52878H14.7416V6.61567H11.5424V8.7079H14.7416L14.2142 11.7948H11.5424V18.0029H15.7963C17.25 18.0029 18.433 16.8488 18.433 15.4305V3.0143C18.433 1.59599 17.25 0.441895 15.7963 0.441895Z"
                     fill="#828282"
@@ -228,7 +266,7 @@ export default function Index() {
           </a>
 
           <a href="#">
-            <span class="w-[42px] h-[42px] rounded-full flex items-center justify-center border border-[#828282] ">
+            <span className="w-[42px] h-[42px] rounded-full flex items-center justify-center border border-[#828282] ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="19"
@@ -236,7 +274,7 @@ export default function Index() {
                 viewBox="0 0 19 19"
                 fill="none"
               >
-                <g clip-path="url(#clip0_1_27)">
+                <g clipPath="url(#clip0_1_27)">
                   <path
                     d="M7.45034 16.8258C6.67196 16.8258 5.87078 16.7627 5.0648 16.6364C3.64524 16.4137 2.20823 15.6711 1.8016 15.4488L0.735107 14.8657L1.88977 14.486C3.15195 14.071 3.91976 13.8135 4.87021 13.4103C3.91852 12.9494 3.18505 12.1203 2.83198 11.0486L2.56336 10.2332L2.78364 10.2668C2.57476 10.0563 2.40983 9.84262 2.28198 9.6483C1.82728 8.95767 1.58654 8.11379 1.63777 7.39061L1.6883 6.67884L2.11444 6.84391C1.93467 6.50443 1.80476 6.14189 1.7284 5.7619C1.54232 4.8352 1.69806 3.8507 2.16703 2.98978L2.53823 2.30836L3.03467 2.90464C4.60475 4.79071 6.59341 5.90953 8.95367 6.23705C8.85727 5.57252 8.9295 4.9312 9.16859 4.35634C9.44696 3.687 9.94216 3.11942 10.6002 2.71485C11.3311 2.26565 12.2174 2.04798 13.0959 2.10195C14.028 2.15922 14.8742 2.50845 15.5463 3.11256C15.8745 3.02727 16.1163 2.93623 16.4432 2.81318C16.6398 2.73916 16.8628 2.65511 17.1419 2.55898L18.1702 2.20468L17.4996 4.11986C17.5438 4.11615 17.5894 4.11299 17.6371 4.11093L18.7352 4.06122L18.0862 4.94823C18.0489 4.99904 18.0395 5.01346 18.0263 5.03337C17.974 5.1122 17.9089 5.21025 17.018 6.39979C16.795 6.69765 16.6836 7.08561 16.7044 7.49238C16.7833 9.03815 16.5937 10.4367 16.1404 11.649C15.7116 12.796 15.0472 13.7801 14.1658 14.574C13.0752 15.5562 11.6845 16.2287 10.0321 16.5725C9.2216 16.7412 8.35121 16.8258 7.45034 16.8258Z"
                     fill="#828282"
@@ -257,7 +295,7 @@ export default function Index() {
           </a>
 
           <a href="#">
-            <span class="w-[42px] h-[42px] rounded-full flex items-center justify-center border border-[#828282] ">
+            <span className="w-[42px] h-[42px] rounded-full flex items-center justify-center border border-[#828282] ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="19"
@@ -265,7 +303,7 @@ export default function Index() {
                 viewBox="0 0 19 19"
                 fill="none"
               >
-                <g clip-path="url(#clip0_1_25)">
+                <g clipPath="url(#clip0_1_25)">
                   <path
                     d="M9.28552 0.441895C4.34222 0.441895 0.285522 4.4986 0.285522 9.44189C0.285522 13.6602 3.24551 17.4921 7.17615 18.4419V15.4643C6.78668 15.5496 6.42825 15.5521 6.03178 15.4352C5.49991 15.2782 5.06773 14.9239 4.74693 14.3837C4.54245 14.0387 4.18004 13.6646 3.80197 13.6921L3.70927 12.6415C4.52679 12.5715 5.23404 13.1396 5.65385 13.8449C5.84035 14.1586 6.05499 14.3425 6.33047 14.4238C6.59676 14.5022 6.88268 14.4646 7.21584 14.3469C7.29947 13.6799 7.60503 13.4302 7.83588 13.0786V13.0781C5.49167 12.7285 4.55742 11.4848 4.18663 10.5032C3.69527 9.19978 3.95894 7.57147 4.82782 6.54247C4.84471 6.52242 4.8752 6.46996 4.86339 6.43329C4.465 5.22987 4.95045 4.23438 4.96831 4.12877C5.42809 4.26472 5.50279 3.99199 6.96548 4.88065L7.21831 5.03253C7.32405 5.09557 7.29082 5.05959 7.39656 5.05162C8.00726 4.88573 8.65106 4.79413 9.28539 4.78589C9.92451 4.79413 10.5642 4.88573 11.2002 5.05835L11.282 5.06659C11.2749 5.06549 11.3043 5.06137 11.3536 5.03198C13.1807 3.92525 13.1151 4.28697 13.6051 4.12767C13.6228 4.23341 14.1018 5.24512 13.7077 6.43329C13.6545 6.59698 15.2917 8.09621 14.3843 10.5028C14.0135 11.4848 13.0794 12.7285 10.7352 13.0781V13.0786C11.0356 13.5366 11.3967 13.7803 11.3948 14.7251V18.4419C15.3255 17.4921 18.2854 13.6602 18.2854 9.44189C18.2855 4.4986 14.2288 0.441895 9.28552 0.441895V0.441895Z"
                     fill="#828282"
@@ -286,29 +324,29 @@ export default function Index() {
           </a>
         </div>
 
-        <p class="text-[#828282] font-noto-sans text-sm font-normal leading-normal tracking-tighter  flex flex-row justify-center mx-auto my-4">
+        <p className="text-[#828282] font-noto-sans text-sm font-normal leading-normal tracking-tighter  flex flex-row justify-center mx-auto my-4">
           Already a member?
           <a
             href="/Login"
-            class="text-blue-600 font-noto-sans text-sm font-normal leading-5 tracking-tighter text-center  focus:text-blue-700 active:text-blue-800"
+            className="text-blue-600 font-noto-sans text-sm font-normal leading-5 tracking-tighter text-center  focus:text-blue-700 active:text-blue-800"
           >
             Login
           </a>
         </p>
       </div>
 
-      <footer class="flex items-center">
+      <footer className="flex items-center">
         <p>created by</p>
         <a
           href="#!"
-          class="text-[#828282] font-NotoSans font-bold text-14 leading-normal tracking-[-0.49px] underline 
+          className="text-[#828282] font-NotoSans font-bold text-14 leading-normal tracking-[-0.49px] underline 
               w-133 h-19 top-844 left-483"
         >
           Carlos Alvarado
         </a>
         <a
           href="https://devchallenges.io/challenges/N1fvBjQfhlkctmwj1tnw"
-          class="ml-auto"
+          className="ml-auto"
         >
           devChallenges.io
         </a>
