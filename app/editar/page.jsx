@@ -1,13 +1,18 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
+
 export default function EditProfile() {
+  if (!localStorage.getItem("Token")) {
+    window.location.href = "/login";
+  }
+  const userData = JSON.parse(localStorage.getItem("Session"));
   const [formData, setFormData] = useState({
-    fullname: "",
-    Bio: "",
-    phone: "",
-    email: "",
-    password: "",
+    fullname: userData.persona.fullname,
+    Bio: userData.persona.Bio,
+    phone: userData.persona.phone,
+    email: userData.email,
+    password: "*******",
   });
 
   const handleInputChange = (event) => {
@@ -19,21 +24,23 @@ export default function EditProfile() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const userdata = JSON.parse(localStorage.getItem("Session"));
+    const id = userdata.id;
+    const url = `http://127.0.0.1:8000/api/persona/update/${id}`;
 
     try {
-      const response = await fetch(
-        "http://127.0.0.1:8000/api/persona/update/1",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
       if (response.ok) {
-        console.log(response);
+        const data = await response.json();
+        localStorage.setItem("Session", JSON.stringify(data.data));
+        window.location.href = "/perfil";
       }
     } catch (error) {
       console.log(error);

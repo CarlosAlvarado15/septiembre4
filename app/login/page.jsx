@@ -1,6 +1,46 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Link from "next/link";
+
 export default function Login() {
+  if (localStorage.getItem("Token")) {
+    window.location.href = "/";
+  }
+
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch("http://127.0.0.1:8000/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        localStorage.setItem("Token", JSON.stringify(data.token));
+        localStorage.setItem("Session", JSON.stringify(data.data));
+        window.location.href = "/";
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <section className="w-fit m-auto h-screen flex flex-col justify-center">
       <div className="w-[473.831px] h-[544.37px] rounded-[24px] border border-gray-300 text-[#BDBDBD]  px-14 flex flex-col justify-center">
@@ -120,8 +160,10 @@ export default function Login() {
               type="text"
               name="email"
               id="email"
+              value={formData.email}
               placeholder="Email"
               className="h-10 w-full outline-none"
+              onChange={handleInputChange}
             />
           </div>
 
@@ -157,14 +199,17 @@ export default function Login() {
               type="password"
               name="password"
               id="password"
+              value={formData.password}
               placeholder="Password"
               className="h-10 w-full outline-none"
+              onChange={handleInputChange}
             />
           </div>
 
           <button
-            type="submit"
+            type="button"
             className="w-[356.481px] h-[38px] text-white bg-[#2F80ED] text-base font-semibold rounded-lg mx-auto my-3"
+            onClick={handleSubmit}
           >
             Login
           </button>

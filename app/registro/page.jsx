@@ -19,7 +19,7 @@ export default function Index() {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/usuario/create", {
+      const response = await fetch("http://127.0.0.1:8000/api/auth/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -327,7 +327,7 @@ export default function Index() {
         <p className="text-[#828282] font-noto-sans text-sm font-normal leading-normal tracking-tighter  flex flex-row justify-center mx-auto my-4">
           Already a member?
           <a
-            href="/Login"
+            href="/login"
             className="text-blue-600 font-noto-sans text-sm font-normal leading-5 tracking-tighter text-center  focus:text-blue-700 active:text-blue-800"
           >
             Login
